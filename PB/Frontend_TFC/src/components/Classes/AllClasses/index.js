@@ -200,7 +200,6 @@ export default function ViewClasses() {
                         ))}
                         </select>
                     </div>
-
                     <div className='f-btn'>
                             <input type="radio" id="enroll" name="grp" value="enroll" onChange={event => setOp(event)}/>
                             <label htmlFor={("enroll")}>Enroll</label>
