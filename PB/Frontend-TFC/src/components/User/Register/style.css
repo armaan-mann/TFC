@@ -1,0 +1,236 @@
+html {
+	 font-size: 10px;
+	 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	 box-sizing: border-box;
+     /* background-color: #6147f4; */
+}
+ *, *:before, *:after {
+	 margin: 0;
+	 padding: 0;
+	 box-sizing: inherit;
+}
+ .register {
+    /*margin-top: 10%;*/
+	 font-family: 'PT Sans', sans-serif;
+	 font-size: 16px;
+	 line-height: 1.428571429;
+	 font-weight: 400;
+	 color: #fff;
+	  background-color: #6147f4;
+}
+ .row-99 {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+}
+ .section-99 {
+	 background-color: #3d4067;
+	 position: relative;
+	 overflow: hidden;
+	 display: flex;
+	 justify-content: center;
+	 flex-direction: column;
+}
+.register  header, main, footer {
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+.register header {
+	padding: 48px;
+}
+@media (max-width: 440px) {
+	header {
+		padding: 48px 24px;
+	}
+}
+.register header > h3 {
+	font-size: 44px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+.register header > h4 {
+	font-size: 22px;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+.register main {
+	flex: 1;
+	padding: 0 48px;
+}
+@media (max-width: 440px) {
+	.register main {
+		padding: 0 24px;
+	}
+}
+.register footer {
+	width: 100%;
+	background-color: #524f81;
+	padding: 16px;
+	align-self: center;
+	text-align: center;
+	margin-top: 32px;
+}
+.register footer a {
+	color: #fff;
+	font-weight: 700;
+	text-decoration: none;
+}
+.register footer a:hover {
+	text-decoration: underline;
+}
+.register form {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.register .label {
+	color: rgba(226, 227, 232, .75);
+	font-size: 16px;
+}
+.register small {
+	display: none;
+}
+.register small.errorOnce {
+	margin-top: 2px;
+}
+.register .form-item-99 input[type="text"], .form-item-99 input[type="number"], .form-item-99 input[type="email"], .form-item-99 input[type="password"]{
+	display: block;
+	color: #e2e3e8;
+	font-size: 16px;
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #75759e;
+	padding: 8px 0;
+	appearance: none;
+	outline: none;
+}
+
+.register .form-item-99 button {
+	/*background-color: #524f81; */
+}
+
+.register .form-item-99 small {
+	/* letter-spacing: 1px;
+	*/
+}
+.register .form-item-99 i {
+	font-size: 12px;
+	color: red;
+}
+.register .box-item-99 {
+	height: 60px;
+	margin-bottom: 16px;
+}
+.register .form-item-double {
+	display: flex;
+}
+.register .form-item-double .form-item-99 {
+	flex: 1 1 auto;
+}
+.register .form-item-double .form-item-99:nth-child(1) {
+	padding-right: 16px;
+}
+.register .form-item-double .form-item-99:nth-child(2) {
+	padding-left: 16px;
+}
+.register .form-item-triple {
+	display: flex;
+	align-items: center;
+	padding-top: 6px;
+}
+.register .form-item-triple .radio-label {
+	flex: 1 1 auto;
+	text-align: left;
+}
+.register .form-item-triple .radio-label label {
+	display: inline-block;
+	vertical-align: middle;
+}
+.register .form-item-triple .form-item-99 {
+	flex: 3 1 auto;
+	text-align: center;
+	margin: 0;
+}
+.register .form-item-triple .form-item-99 label, .form-item-triple .form-item-99 input[type="radio"] {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 4px;
+}
+.register ::-webkit-input-placeholder {
+	/* WebKit, Blink, Edge */
+	color: rgba(226, 227, 232, .75);
+	font-size: 16px;
+}
+.register :-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: rgba(226, 227, 232, .75);
+	font-size: 16px;
+	opacity: 1;
+}
+.register ::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: rgba(226, 227, 232, .75);
+	font-size: 16px;
+	opacity: 1;
+}
+.register :-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: rgba(226, 227, 232, .75);
+	font-size: 16px;
+}
+.register ::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: rgba(226, 227, 232, .75);
+	font-size: 16px;
+}
+.register .submit-99 {
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 8px 48px;
+	margin-top: 32px;
+	border: 2px solid #75759e;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: all ease 0.2s;
+	background-color: #524f81;
+}
+.register .submit-99:hover {
+	background-color: #eda261;
+	border: 2px solid #eda261;
+}
+
+.register .submit-99 button {
+	background: none;
+	color: inherit;
+	border: none;
+}
+.register .wave-99 {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 800px;
+	height: 800px;
+	margin-top: -600px;
+	margin-left: -400px;
+	background: #252e45;
+	border-radius: 40%;
+	animation: shift 20s infinite linear;
+	z-index: 0;
+}
+@keyframes shift {
+	from {
+		transform: rotate(360deg);
+	}
+}
+
+.register .form-item-99 span {
+	color: red;
+	font-size: 12px;
+	width: 2px;
+	height: 2px;
+}

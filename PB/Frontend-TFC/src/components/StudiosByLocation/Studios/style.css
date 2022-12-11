@@ -1,0 +1,139 @@
+#filters {
+    width: 100vw;
+    height: 25vh;
+    background-color: rgb(75, 157, 167);
+}
+
+#parent {
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    background-color: rgb(22, 192, 211);
+  }
+
+#table {
+    display: inline-block;
+    width: 40%;
+    height: 40%;
+}
+
+#map {
+    flex: 1;
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    vertical-align: top;
+}
+.page-btn {
+    position: relative;
+    font-size: 2em;
+    width: 10%;
+    height: 10%;
+    background-color: #a58f89;
+    margin: 10px;
+    padding: 5px;
+}
+
+
+.search-studios {
+    display: inline-block;
+    position: relative;
+    right: 35%;
+    height: 3.5vb;
+    width: 25%;
+    margin: 5px;
+    padding: 5px;
+    border: 5 px solid black;
+    border-radius: 10px;
+    font-size: 2vb;
+}
+.search-amenities {
+    display: inline-block;
+    position: relative;
+    right: 35%;
+    height: 3.5vb;
+    width: 25%;
+    margin: 5px;
+    padding: 5px;
+    border: 5 px solid black;
+    border-radius: 10px;
+    font-size: 2vb;
+}
+.search-classes {
+    display: inline-block;
+    position: relative;
+    right: 35%;
+    height: 3.5vb;
+    width: 25%;
+    margin: 5px;
+    padding: 5px;
+    border: 5 px solid black;
+    border-radius: 10px;
+    font-size: 2vb;
+}
+.search-coaches {
+    display: inline-block;
+    position: relative;
+    right: 35%;
+    width: 25%;
+    height: 3.5vb;
+    margin: 5px;
+    padding: 5px;
+    border: 5 px solid black;
+    border-radius: 10px;
+    font-size: 2vb;
+}
+
+#filter-btn {
+    display: inline-block;
+    position: relative;
+    right: 44%;
+    margin: 5px;
+    padding: 3px;
+    background-color: rgb(211, 205, 22);
+}
+
+.filter-tags-amen {
+    display: inline;
+    position: absolute;
+    left: 30%; 
+    top: 12%;
+    margin-right: 5px;
+    padding: 3px;
+}
+
+.filter-tags-class {
+    display: inline;
+    position: absolute;
+    left: 30%; 
+    margin-right: 5px;
+    padding: 3px;
+}
+
+.filter-tags-element {
+    margin: 5px;
+    padding: 3px;
+    background-color: rgb(243, 67, 67);
+}
+
+.delete-filter {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    height: 40%;
+    padding: 1px;
+    font-size: 100%;
+    background-color: rgb(190, 66, 66);
+}
+
+.search-tag {
+    display: inline;
+    position: absolute;
+    left: 29%; 
+    margin-right: 5px;
+    margin-top: 4px;
+    padding: 1px;
+    background-color: rgb(61, 141, 141);
+    border: 1px solid black;
+    border-radius: 4px 4px 4px 4px;
+}

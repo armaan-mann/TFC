@@ -1,0 +1,178 @@
+.plans-overlay{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(35, 15, 15);
+    overflow: auto;
+    justify-items: center;
+    text-align: center;
+    font-size: 3rem;
+
+}
+
+.plans-overlay .bag{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 90%;
+    gap: 3%;
+}
+
+
+.plans-overlay header {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+}
+
+.tableDiv .navbar a {
+    color: white;
+    font-size: 1rem;
+}
+
+.plans-overlay header .user-btn {
+    border: none;
+    width: 5rem;
+    border-radius: 50%;
+    height: 30%;
+    outline: none;
+    margin-top: 35%;
+}
+
+.plans-overlay .menuItems {
+    margin-left: 5%;
+}
+
+/* .plans-overlay .user-btn {
+    width: 80%;
+    background: red;
+    cursor: pointer;
+    margin-top: 40%;
+} */
+
+.plans-overlay .fa-user, .fa-right-from-bracket {
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+}
+
+
+.plans-overlay footer {
+    padding: 4%;
+    position: relative;
+    text-align: center;
+    bottom: 0%;
+    background-color: rgb(0, 0, 0);
+    font-size: 50%;
+}
+
+
+.plans-overlay .plan-header{
+    display: flex ;
+    flex-direction: row;
+    gap: 2%;
+    align-items: center;
+    justify-content: center ;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: bold;
+    position: relative;
+    color: WHITE;
+    margin-top: 2%;
+}
+
+.plans-overlay .plan-tiles{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center ;
+    width: 100%;
+    height: 60%;
+    gap: 3%;
+    margin-top: 0%;
+}
+
+.plans-overlay .plans{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 10% ;
+    gap: 4%; 
+    background: lightgray;
+    padding: 2%;
+    width: 20%;
+    height: 85%;
+    border-radius: 0.1em;
+}
+.plans-overlay .plans:nth-child(2){
+    transform: scale(1.2);
+    background: rgb(210, 30, 30);
+    /* background-image: linear-gradient(to right top, #dc4717, #ec394f, #ec3f7f, #dc55ab, #be6ecd, #a085e8, #799af8, #4bacff, #00c3ff, #00d7ff, #0feafd, #5ffbf1);} */
+}
+.plans-overlay .plans>svg{
+    display: flex;
+    fill: orange;
+    width: 25%;
+    height: 15%;
+}
+
+.plans-overlay .plans>:nth-child(2){
+    font-size: 80%;
+    font-weight: bold;
+}
+
+.plans-overlay .plans>:nth-child(3){
+    font-size: 75%;
+    font-weight: bold;
+}
+
+.plans-overlay .plans>:nth-child(4){
+    font-size: 50%;
+    font-weight: bold;
+}
+.plans-overlay .description{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.plans-overlay .point{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.plans-overlay .point > img{
+    width: 2rem;
+}
+
+.plans-overlay .btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 2%;
+}
+
+.plans-overlay .join-button{
+    position: relative;
+    width: 20%;
+    margin-bottom: 6%;
+    background-color: white;
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 80%;
+    border-radius: 0.8em;
+    border: none;
+    cursor: pointer;
+}
+
+.plans-overlay .stroke-text{
+    color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: red;
+}

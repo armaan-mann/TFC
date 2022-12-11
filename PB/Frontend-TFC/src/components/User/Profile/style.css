@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css?family=Krub:400,700');
+ * {
+	 margin: 0;
+	 padding: 0;
+	 box-sizing: border-box;
+}
+.profile {
+	 width: 100vw;
+	 height: 100vh;
+	 overflow-x: hidden;
+
+}
+.profile {
+	 background: #202020;
+	 font-family: 'Krub', sans-serif;
+}
+.profile .card {
+	 display: flex;
+	 flex-direction: column;
+	 position: relative;
+	 margin: auto;
+	 top: 2%;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 width: 36%;
+	 height: 78%;
+	 border-radius: 10px;
+	 box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
+	 overflow-x: hidden;
+	 background: #151515;
+
+}
+
+.profile > header {
+    padding: 1%;
+    text-align: right;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+	margin-bottom: auto;
+    gap: 10%;
+}
+
+.profile > footer {
+    padding: 5%;
+	margin-top: 1.5%;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+}
+
+.navbar a {
+    color: white;
+    font-size: 23px;
+}
+
+.website-logo {
+    width: 100px;
+    height: 100px;
+    margin: 15px 0 0 45px;
+    display: flex;
+    justify-content: left;
+    position: relative;
+
+}
+.profile .user-logo .user-btn {
+    border: none;
+    border-radius: 50%;
+    height: 40%;
+    /*margin-right: 10px;*/
+    outline: none;
+    width: 45px;
+}
+
+.user-btn {
+    background: red;
+    cursor: pointer;
+    margin-top: 50px;
+    left: -10%;
+}
+
+.fa-user, .fa-right-from-bracket {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+.user-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    left: -2%;
+    gap: 2em;
+
+}
+
+.profile .main-btn {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-left: 2%;
+    margin-top: -8%;
+    font-size: 30em;
+    gap: 5%;
+    width: 30%;  
+}
+
+.profile .main-btn .btn-99 {
+    font-size: 4.3%;   
+}
+
+.user-btn:hover {
+    /*user-focus-pointer: ;*/
+}
+.profile footer h3 {
+    color: white;
+    margin: 0;
+
+}
+
+ .profile .card .ds-top {
+	 position: absolute;
+	 margin: auto;
+	 top: 0;
+	 right: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 10%;
+	 background: crimson;
+	 animation: dsTop 1.5s;
+}
+ .profile .card .avatar-holder {
+	 position: absolute;
+	 margin: auto;
+	 top: 2%;
+	 right: 0;
+	 left: 0;
+	 width: 40%;
+	 height:35%;
+	 border-radius: 50%;
+	 box-shadow: 0 0 0 5px #151515, inset 0 0 0 5px #000, inset 0 0 0 5px #000, inset 0 0 0 5px #000, inset 0 0 0 5px #000;
+	 background: white;
+	 overflow: hidden;
+	 animation: mvTop 1.5s;
+}
+ .profile .card .avatar-holder img {
+	 width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+}
+ .profile .card .name {
+	 position: absolute;
+	 margin: auto;
+	 top: -25%;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 1%;
+	 text-align: center;
+	 animation: fadeIn 2s ease-in;
+}
+ .profile .card .name a {
+	 color: white;
+	 text-decoration: none;
+	 font-weight: 700;
+	 font-size: 4rem;
+}
+ .profile .card .name h6 {
+	 position: absolute;
+	 margin: auto;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 color: white;
+	 width: 40px;
+}
+ .profile .card .ds-info {
+	 position: relative;
+	 margin: auto;
+	 top: 26%;
+	 bottom: 0;
+	 right: 0;
+	 left: 0;
+	 width: inherit;
+	 height: 40px;
+	 /*display: flex;*/
+	 /*gap: 4rem;*/
+
+}
+
+
+ .profile .card .ds-info .pens, .card .ds-info .projects, .card .ds-info .posts {
+	 position: relative;
+	 /*right: 10%;*/
+	 left: -500px;
+	 width: calc(250px / 1);
+	 text-align: center;
+	 color: white;
+	 animation: fadeInMove 2s;
+	 animation-fill-mode: forwards;
+
+}
+ .profile .card .ds-info .pens h6, .card .ds-info .projects h6, .card .ds-info .posts h6 {
+	 text-transform: uppercase;
+	 font-size: 1.5rem;
+	 color: crimson;
+}
+ .profile .card .ds-info .pens p, .card .ds-info .projects p, .card .ds-info .posts p {
+	 font-size: 20px;
+}
+ .profile .card .ds-info .ds:nth-of-type(2) {
+	 animation-delay: 0.5s;
+}
+ .profile .card .ds-info .ds:nth-of-type(1) {
+	 animation-delay: 1s;
+}
+ .profile .card .ds-skill {
+	 position: relative;
+	 margin: auto;
+	 bottom: 10%;
+	 right: 0;
+	 left: 0;
+	 width: 70%;
+	 height: 10%;
+	 animation: mvBottom 1.5s;
+} 
+ .profile .card .ds-skill h6 {
+	 margin-bottom: 5%;
+	 font-weight: 700;
+	 font-size: 1.5rem;
+	 color: crimson;
+}
+ .profile .card .ds-skill .skill h6 {
+	 font-weight: 200;
+	 font-size: 1.5rem;
+	 letter-spacing: 0.05em;
+	 margin: 1% 0;
+	 color: white;
+}
+ .BUTTON .fa-user-pen {
+	 cursor: pointer;
+ }
+
+ .profile .card .ds-skill .skill .fab {
+	 color: crimson;
+	 font-size: 3rem;
+}
+.profile  .card .ds-skill .skill .bar {
+	 height: 3%;
+	 background: crimson;
+	 text-align: right;
+}
+ .profile .card .ds-skill .skill .bar p {
+	 color: white;
+	 font-size: 3%;
+	 padding-top: 1.5%;
+	 animation: fadeIn 5s;
+}
+
+.profile .card .ds-skill .skill .css{
+	font-size: 0.5rem;
+}
+
+ .profile .card .ds-skill .skill .bar:hover {
+	 background: white;
+}
+ .profile .card .ds-skill .skill .bar-html {
+	 width: 100%;
+	 animation: htmlSkill 1s;
+	 animation-delay: 0.4s;
+}
+ .profile .card .ds-skill .skill .bar-css {
+	 width: 100%;
+	 animation: cssSkill 1s;
+	 animation-delay: 0.4s;
+}
+ .card .ds-skill .skill .bar-js {
+	 width: 100%;
+	 animation: jsSkill 1s;
+	 animation-delay: 0.4s;
+}
+ @keyframes fadeInMove {
+	 0% {
+		 opacity: 0;
+		 left: -300px;
+	}
+	 100% {
+		 opacity: 1;
+		 left: 0;
+	}
+}
+ @keyframes fadeIn {
+	 0% {
+		 opacity: 0;
+	}
+	 100% {
+		 opacity: 1;
+	}
+}
+ @keyframes htmlSkill {
+	 0% {
+		 width: 0;
+	}
+	 100% {
+		 width: 95%;
+	}
+}
+ @keyframes cssSkill {
+	 0% {
+		 width: 0;
+	}
+	 100% {
+		 width: 90%;
+	}
+}
+ @keyframes jsSkill {
+	 0% {
+		 width: 0;
+	}
+	 100% {
+		 width: 75%;
+	}
+}
+ @keyframes mvBottom {
+	 0% {
+		 bottom: -150px;
+	}
+	 100% {
+		 bottom: 10px;
+	}
+}
+ @keyframes mvTop {
+	 0% {
+		 top: -150px;
+	}
+	 100% {
+		 top: 40px;
+	}
+}
+ @keyframes dsTop {
+	 0% {
+		 top: -150px;
+	}
+	 100% {
+		 top: 0;
+	}
+}
+.profile  .following {
+	 color: white;
+	 background: crimson;
+}
+ 
