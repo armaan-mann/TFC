@@ -1,6 +1,6 @@
 #!/bin/bash
 cd PB
-cd Frontend-TFC
+cd Frontend_TFC
 pip install npm
 npm install
 
