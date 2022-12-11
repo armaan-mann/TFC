@@ -25,7 +25,7 @@ export default function ViewClasses() {
     const [classAction, setClassAction] = useState("");
     const [option, setOption] = useState("");
     const [page, setPage] = useState(1);
-    const [page_count, setPageCount] = useState(1);
+    const [page_count, setPageCount] = useState(0);
     const [classList, setClassList] = useState([]);
     const [formErrors, setFormErrors] = useState("");
     const url = `http://127.0.0.1:8000/classes/${id}/${id}/class/all/?offset=${page}`;
