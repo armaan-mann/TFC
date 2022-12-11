@@ -217,6 +217,7 @@ const Studios = () => {
     //console.log(studios)
     return (
 
+
         <>  
             <button onClick={() => setParams({
                 ...params,

@@ -2,22 +2,20 @@
 * {
     /*font-family: 'Roboto', sans-serif;*/
     font-family: 'Montserrat',sans-serif;
+
 }
-.update-card {
-    /*align-items: center;*/
+.getPlan {
+    width: 100vw;
+    height: 100vh;
     font-size: 14px;
     font-weight: 400;
-    height: 100vh;
     justify-items: center;
     overflow-x: hidden;
-    width: 100vw;
-    /* background-color: rgb(210, 30, 30); */
+    background-image: url(https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1009&q=80);
     text-align: center;
-    /*z-index: 1;*/
-    /*background-color: #ffa400;*/
 }
 
-.update-card > header {
+.getPlan > header {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -28,23 +26,23 @@
     gap: 10%;
 }
 
-.update-card footer {
+.getPlan footer {
     display: flex;
     flex-direction: row;
     position: relative;
     justify-content: center;
     padding: 3%;
-    bottom: 0%;
     text-align: center;
+    top: 15em;
     background-color: rgb(0, 0, 0);
 }
 
-.update-card .navbar a {
+.getPlan .navbar a {
     color: white;
     font-size: 23px;
 }
 
-.update-card .website-logo {
+.getPlan .website-logo {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -52,7 +50,7 @@
     width: 15%;
     height: 0.3%;
 }
-.update-card header .user-btn {
+.getPlan header .user-btn {
     border: none;
     width: 4rem;
     border-radius: 50%;
@@ -61,19 +59,19 @@
     outline: none;
 }
 
-/* .update-card .user-btn {
+/* .getPlan .user-btn {
     width: 80%;
     background: red;
     cursor: pointer;
     margin-top: 40%;
 } */
 
-.update-card .fa-user, .fa-right-from-bracket {
+.getPlan .fa-user, .fa-right-from-bracket {
     color: rgb(255, 255, 255);
     font-size: 25px;
 }
 
-.update-card .user-logo {
+.getPlan .user-logo {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -83,7 +81,7 @@
 
 }
 
-.update-card .main-btn {
+.getPlan .main-btn {
     display: flex;
     flex-direction: row;
     margin-left: 2%;
@@ -91,16 +89,319 @@
     width: 100%;
 }
 
-.update-card .main-btn .btn-99 {
+.getPlan .main-btn .btn-99 {
     font-size: 2rem;
 }
 
-.update-card .user-btn:hover {
+.getPlan .user-btn:hover {
     /*user-focus-pointer: ;*/
 }
 
-.update-card footer h3 {
+.getPlan footer h3 {
     color: white;
     margin: 0;
+}
 
+main {
+    display: block;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+    alignment: center;
+    margin: 10% 20%;
+}
+
+/*.getPlan {*/
+/*    !*align-items: center;*!*/
+/*    font-size: 14px;*/
+/*    font-weight: 400;*/
+/*    height: 100vh;*/
+/*    overflow: hidden;*/
+/*    justify-items: center;*/
+/*    width: 100vw;*/
+/*    !* background-color: rgb(210, 30, 30); *!*/
+/*    background-image: url(https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1009&q=80);*/
+/*    text-align: center;*/
+/*}*/
+
+/*.getPlan > header {*/
+/*    top: 0%;*/
+/*    padding: 3%;*/
+/*    text-align: center;*/
+/*    background-color: rgb(0, 0, 0);*/
+/*}*/
+
+/*.getPlan > footer {*/
+/*    padding: 4%;*/
+/*    position: relative;*/
+/*    text-align: center;*/
+/*    bottom: 0%;*/
+/*    background-color: rgb(0, 0, 0);*/
+/*}*/
+
+/*.getPlan > footer h3 {*/
+/*    color: white;*/
+/*    margin: 0;*/
+/*}*/
+
+.getPlan  h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
+.getPlan  h2 {
+    text-align: center;
+}
+
+.getPlan  p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    /*letter-spacing: 0.5px;*/
+    margin: 20px 0 30px;
+}
+
+.getPlan span {
+    font-size: 12px;
+}
+
+.getPlan a {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    text-decoration: none;
+    margin: 2% 0;
+}
+
+.getPlan .add-btn {
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+}
+
+.add-btn:focus {
+    outline: none;
+}
+
+.add-btn.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
+.getPlan form {
+    background-color: rgba(0, 0, 0, 0.543);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.getPlan input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+.getPlan select{
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+
+.getPlan .container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 8%;
+    /* overflow: hidden; */
+    width: 70%;
+    height: 80%;
+}
+
+.getPlan .container {
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.25),
+    0 10px 10px rgba(255, 255, 255, 0.22);
+
+    /*max-width: 100%;*/
+
+    /*min-height: 480px;*/
+}
+
+.getPlan .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.getPlan .sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.getPlan .container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+/*.sign-up-container {*/
+/*    left: 0;*/
+/*    width: 50%;*/
+/*    opacity: 0;*/
+/*    z-index: 1;*/
+/*}*/
+
+.getPlan .container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.getPlan .overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+
+
+.getPlan .container .right-panel-active .overlay-container{
+    transform: translateX(-100%);
+}
+
+.getPlan .overlay {
+    background: #FF416C;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.getPlan .container .right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.getPlan .overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /*padding: 0 40px;*/
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.getPlan .overlay-left {
+    transform: translateX(-20%);
+}
+
+.getPlan .container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.getPlan .overlay-right {
+    right: 0;
+    transform: translateX(0);
+    max-width:100%;
+    max-height:100%;
+}
+
+.getPlan img{
+    position: relative;
+    width: 140%;
+    height: 120%;
+}
+
+.getPlan .container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.getPlan .social-container {
+    margin: 20px 0;
+}
+
+.getPlan .social-container a {
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}
+.getPlan .err-3 {
+    color: red;
+    font-size: 12px;
+    margin: 2% 0;
+}
+
+
+.getPlan .signup-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 73.9%;
+}
+
+
+.getPlan h1 {
+    padding-top: 5%;
+    font-size: 40px;
+    color: white;
+}
+
+.getPlan .shadow-container { background-color: rgba(0, 0, 0, 0.61)
 }

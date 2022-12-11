@@ -1,5 +1,4 @@
 from django.http import Http404
-from classes.api.pagination import FilterPagination
 from rest_framework.pagination import LimitOffsetPagination
 from accounts.models import User
 from rest_framework.generics import CreateAPIView, get_object_or_404, ListAPIView, RetrieveAPIView, \
@@ -12,7 +11,7 @@ from classes.models import Class, Enrollment, ClassHistory
 from studios.models import Studio
 from itertools import chain
 from django.db.models import Q, F
-
+from classes.api.pagination import CustomPagination
 
 # Create your views here.
 
@@ -20,7 +19,7 @@ class ViewClassAPIVIew(ListAPIView):
     serializer_class = ClassSerializer
     queryset = Class.objects.all()
     permission_classes = (AllowAny, IsAuthenticated)
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         try:
@@ -60,11 +59,20 @@ class EnrollmentAPIView(RetrieveUpdateAPIView):
             _ = EnrolUserSerializer(instance)
         return Response({"Success": "Drop or Enrolled was Successful!"})
 
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = get_object_or_404(self.get_queryset(), pk=self.kwargs['id'])
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        if serializer.is_valid(raise_exception=True):
+            instance = self.perform_update(serializer)
+            _ = EnrolUserSerializer(instance)
+        return Response({"Success": "Drop or Enrolled was Successful!"})
+
 
 class HistoryAPIView(ListAPIView):
     serializer_class = HistorySerializer
     permission_classes = [IsAuthenticated, ]
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         user = User.objects.filter(id=self.kwargs['user_id'])
@@ -83,10 +91,25 @@ class HistoryAPIView(ListAPIView):
         return class_history
 
 
+class ShowEveryClassAPIView(ListAPIView):
+    serializer_class = ClassSerializer
+    permission_classes = [AllowAny]
+    pagination_class = None
+    queryset = Class.objects.all()
+
+
+class ShowEveryClassPagniatedAPIView(ListAPIView):
+    serializer_class = ClassSerializer
+    permission_classes = [AllowAny]
+    pagination_class = CustomPagination
+    queryset = Class.objects.all()
+
+
+
 class ScheduleAPIView(ListAPIView):
     serializer_class = HistorySerializer
     permission_classes = [IsAuthenticated, ]
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         user = User.objects.filter(id=self.kwargs['user_id'])
@@ -109,7 +132,7 @@ class ScheduleAPIView(ListAPIView):
 class SearchByName(ListAPIView):
     serializer_class = ClassSerializer
     permission = [AllowAny, ]
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         studio = Studio.objects.filter(id=self.kwargs['studio_id'])
@@ -124,7 +147,7 @@ class SearchByName(ListAPIView):
 class SearchByCoach(ListAPIView):
     serializer_class = ClassSerializer
     permission = [AllowAny, ]
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         studio = Studio.objects.filter(id=self.kwargs['studio_id'])
@@ -138,7 +161,7 @@ class SearchByCoach(ListAPIView):
 class SearchByDate(ListAPIView):
     serializer_class = ClassSerializer
     permission = [AllowAny, ]
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         studio = Studio.objects.filter(id=self.kwargs['studio_id'])
@@ -153,7 +176,7 @@ class SearchByDate(ListAPIView):
 class SearchByTime(ListAPIView):
     serializer_class = ClassSerializer
     permission = [AllowAny, ]
-    pagination_class = LimitOffsetPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         studio = Studio.objects.filter(id=self.kwargs['studio_id'])
@@ -170,7 +193,7 @@ class SearchByTime(ListAPIView):
 class FilterView(ListAPIView):
     serializer_class = ClassSerializer
     permission = [AllowAny, ]
-    pagination_class = FilterPagination
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         all_classes = Class.objects.filter(id=self.kwargs['studio_id'])

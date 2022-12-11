@@ -6,6 +6,7 @@ import {Link, useNavigate, useLocation, useParams} from "react-router-dom";
 const StudioTable = ({ perPage, params }) => {
     const { studios } = useContext(APIContext);
     const { uid } = useParams();
+    const { sid } = useParams();
     //const { setStudioID } = useContext(APIContextID);
 
     /*const setID = (e) => {

@@ -10,187 +10,123 @@ import APIContext from "../../../Contexts/APIContext";
 
 const Enrollment = () => {
     const navigate = useNavigate();
-    const { id } = useParams();
-    const { studio_id } = useParams();
+    const { user_id } = useParams();
     const { class_id } = useParams();
-    const [Studio, setStudio] = useState("");
-    const [classAction, setClassAction] = useState("");
-    const { studios } = useContext(APIContext);
-    // const { setstudios } = useContext(APIContext);
-    const send_url =  "http://127.0.0.1:8000/classes/" + id + "/" + studio_id + "/class/" + class_id + "/enroll-drop/";
+    const [className, setClassName] = useState("");
+    const [option, setOp] = useState("");
+    const [formErrors, setFormErrors] = useState("");
+    const [listClasses, setListClasses] = useState([]);
 
-    const studioList = () => {
-        for (let i = 0; i < studios.length; i++) {
-            console.log(studios[i]);
-        }
-            }
-    studioList()
-    function setOption(e) {
+    const send_url =  "http://127.0.0.1:8000/classes/" + user_id + "/" + "/class/" + class_id + "/enroll-drop/";
+
+    useEffect(() => {
+        axios({method: "get", url: "http://127.0.0.1:8000/classes/all/", headers: {
+                Authorization: localStorage.getItem('SavedToken'),
+            }}).then(res => { setListClasses(res.data)})
+    })
+
+
+    function Op(e) {
         console.log(e.target.value)
-        setClassAction(e.target.value)
+        setOp(e.target.value)
     }
 
-    function toEnrollIn(e){
-        setStudio(e.target.value)
+    function Name(e){
+        setClassName(e.target.value)
     }
 
-    const Done = async (e) => {
-        e.preventDefault()
+    function handleEnrollment(res) {
+        console.log(res)
+        let k = Object.keys(res);
+        if ('Success' in k) {
+            alert("Enrolled!");
+        }
+    }
+
+    function get_errors(keys, data){
+        console.log(keys)
+        console.log(data)
+        let errors = {}
+        for (let i = 0; i < keys.length; i++){
+            console.log(keys)
+            let k = keys[i]
+            errors[k] = data.response.data[k]
+        }
+
+        setFormErrors(errors);
+        console.log(errors)
+        return errors
+    }
+
+    const enrollOrDrop = async(e) => {
+        e.preventDefault();
         axios({
             method: "put",
-            url: send_url,
+            url: `http://localhost:8000/classes/${user_id}/class/${class_id}/enroll-drop/`,
             data: {
-                '_enrolled': Studio,
-                '_enroll_or_drop': classAction
-            }, headers: {
-                Authorization: localStorage.getItem('SavedToken')
+                _enrolled: className,
+                _enroll_or_drop: option
+            },
+            headers: {
+                Authorization: localStorage.getItem('SavedToken'),
             }
-        }) .then(res => console.log(res))
-    }
-
-
+        }) .then(res => handleEnrollment(res))
+            .catch(err => {
+                    get_errors(Object.keys(err.response.data), err)
+                }
+            )
+    };
 
     return (
-        <APIContext.Provider>
-            <div className='update-card'>
-                <div className="row-99">
-                    <header>
-                        <div className="website-logo">
-                            <img src="https://www.cs.toronto.edu/~kianoosh/courses/csc309/resources/images/tfc.png" alt="logo-tfc-picture"/>
-                        </div>
-                        <div className="navbar">
-                            <nav>
-                                <ul className="menuItems">
-                                    <li><a href='/main' data-item='Home'>Home</a></li>
-                                    <li><a href='' data-item='Classes'>Classes</a></li>
-                                    <li><a href='/studios' data-item='Studios'>Studios</a></li>
-                                    <li><a href='/plans' data-item='Subscriptions'>Subscriptions</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div className="user-logo">
-                            {/*<Link to={"/" + this.state.id + "/profile/"}>*/}
-                            {/*
-                {/*</Link>*/}
-                            <button className="user-btn">
-                                <i className="fa-solid fa-user"></i>
-                            </button>
-                            <button className="user-btn">
-                                <i className="fa-solid fa-right-from-bracket"></i>
-                            </button>
-                        </div>
-                    </header>
+            <div className='getPlan'>
+                <header>
+                    <div className="website-logo">
+                        <img src="https://www.cs.toronto.edu/~kianoosh/courses/csc309/resources/images/tfc.png" alt="logo-tfc-picture"/>
+                    </div>
+                    <div className="navbar">
+                        <nav>
+                            <ul className="menuItems">
+                                <li><a href='/main' data-item='Home'>Home</a></li>
+                                <li><a href='/all' data-item='Classes'>Classes</a></li>
+                                <li><a href='/studios' data-item='Studios'>Studios</a></li>
+                                <li><a href='/plans' data-item='Subscriptions'>Subscriptions</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+
+                <div className="row-98">
                     <section className="section-2">
                         <main>
+                            <div className="shadow-container">
+                                <h1> Please choose your Enrollment Choice for the Class {class_id} </h1>
 
-                            {/*<select name="country" value={this.state.data.country}>*/}
-                            {/*    {this.countryData.map((e, key) => {*/}
-                            {/*        return <option key={key} value={e.value}>{e.name}</option>;*/}
-                            {/*    })}*/}
-                            {/*</select>*/}
+                                    <select id="status" value={className} onChange={e => Name(e)}>
+                                        <option value="#">-----</option>
+                                        {listClasses.map((c, index) => (
+                                            <option key={index} value={c.name} onClick={event => setClassName(event.target.value)}>{c.name}</option>
+                                        ))}
+                                    </select>
 
-                            <select id="studios" value={Studio} onChange={event => toEnrollIn(event)} required>
-                                <option value="">-------</option>
-                                <option value="gym"> gym </option>
-                                <option value="">Studio Name </option>
-                                <option value="3">Studio Name </option>
-                            </select>
-                            <select id="status" value={classAction} onChange={event => setOption(event)} required>
+                                <select id="status" value={option} onChange={event => Op(event)} required>
                                 <option value="">-------</option>
                                 <option value="enroll">Enroll </option>
                                 <option value="drop">Drop</option>
                                 <option value="enroll_all">Enroll All</option>
                                 <option value="drop_all">Drop All</option>
                             </select>
-                            <select id="estatus" value={classAction} onChange={event => setOption(event)} required>
-                                <option value="">-------</option>
-                                <option value="enroll">Enroll </option>
-                                <option value="drop">Drop</option>
-                            </select>
-                            {/*<button id="enroll" className="btn" value="enroll" onClick={event => setOption(event)}>*/}
-                            {/*    Enroll*/}
-                            {/*</button>*/}
-                            {/*<button id="drop" className="btn" value="drop" onClick={event => setOption(event)}>*/}
-                            {/*    Drop*/}
-                            {/*</button>*/}
-                            {/*<button id="enroll_all" className="btn" value="enroll_all" onClick={event => setOption(event)}>*/}
-                            {/*    Enroll All*/}
-                            {/*</button>*/}
-                            {/*<button id="drop_all" className="btn" value="drop_all" onClick={event => setOption(event)}>*/}
-                            {/*    Drop All*/}
-                            {/*</button>*/}
-                            <button id="finish" onClick={e => Done(e)}>
+                            <button id="boo" onClick={e => enrollOrDrop(e)}>
                                 Finish
                             </button>
-
-
-                            {/*<button onClick={}> CLICK ME</button>*/}
-                            {/*<form onSubmit={(e) => submitForm(e)}>*/}
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <input id="username" type="text" placeholder="Username"*/}
-                            {/*               onChange={(e) => setUsername(e.target.value)} value={username} data-required/>*/}
-                            {/*        <span>{formErrors['username']}</span>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <input id="first_name" type="text" onChange={(e) => setFirstName(e.target.value)}*/}
-                            {/*               placeholder="First Name" value={first_name} data-required/>*/}
-                            {/*        <span>{formErrors['first_name']}</span>*/}
-                            {/*    </div>*/}
-
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <input id="last_name" type="text" name="text"*/}
-                            {/*               onChange={(e) => setLastName(e.target.value)} placeholder="Last Name"*/}
-                            {/*               value={last_name} data-required/>*/}
-                            {/*        <span>{formErrors['last_name']}</span>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <input id="email" type="email" onChange={(e) => setEmail(e.target.value)}*/}
-                            {/*               placeholder="Email" value={email} data-email data-required/>*/}
-                            {/*        <span>{formErrors['email']}</span>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <input id="password" type="password" onChange={(e) => setPassword(e.target.value)}*/}
-                            {/*               value={password} placeholder="Password"*/}
-                            {/*               data-required/>*/}
-                            {/*        <span>{formErrors['password']}</span>*/}
-                            {/*    </div>*/}
-
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <input id="repeat_password" type="password" placeholder="Repeat Password"*/}
-                            {/*               onChange={(e) => setRepeatPassword(e.target.value)} value={repeat_password}*/}
-                            {/*               data-required/>*/}
-                            {/*        <span>{formErrors['repeat_password']}</span>*/}
-                            {/*    </div>*/}
-
-
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <input id="phone_number" type="number" placeholder="Phone Number"*/}
-                            {/*               onChange={(e) => setPhoneNumber(e.target.value)} value={phone_number}*/}
-                            {/*               data-required/>*/}
-                            {/*        <span>{formErrors['phone_number']}</span>*/}
-                            {/*    </div>*/}
-
-                            {/*    <div className="form-item box-item">*/}
-                            {/*        <label>Choose Your Avatar</label><br></br><br></br>*/}
-                            {/*        <input id="avatar" type="file" placeholder="Avatar" onChange={handleImage}/>*/}
-                            {/*        <span>{formErrors['avatar']}</span>*/}
-
-                            {/*    </div>*/}
-                            {/*    <div className="form-item">*/}
-                            {/*        <button className='submit'>Submit</button>*/}
-                            {/*        <span className="err-9">{formErrors['detail']}</span>*/}
-                            {/*    </div>*/}
-
-                            {/*</form>*/}
+                                <span className="err-3"> {formErrors['Message']}</span>
+                            </div>
                         </main>
                     </section>
                     <footer>
                         <h3>© Ansh, Armaan, Giancarlo </h3>
                     </footer>
-
                 </div>
             </div>
-        </APIContext.Provider>
     )
 }
 

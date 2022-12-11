@@ -377,3 +377,9 @@
      width: 2px;
      height: 2px;
  }
+
+#no {
+    width: 10rem;
+    height: 8rem;
+    margin: 5%;
+}

@@ -9,7 +9,8 @@ import StudioClassSchedule from "./StudioClassSchedule";
 function StudioPage(props) {
     const location = useLocation()
     const { uid } = useParams();
-    const { id } = location.state
+    const { id } = location.state;
+
     const [studioName, setStudioName] = useState("");
     const [studioAdd, setStudioAdd] = useState("");
     const [studioLat, setStudioLat] = useState("");
@@ -53,7 +54,7 @@ function StudioPage(props) {
                         <nav>
                             <ul className="menuItems">
                                 <li><a href='/main' data-item='Home'>Home</a></li>
-                                <li><a href='#' data-item='Classes'>Classes</a></li>
+                                <li><a href='/all' data-item='Classes'>Classes</a></li>
                                 <li><a href='/studios' data-item='Studios'>Studios</a></li>
                                 <li><a href='/plans' data-item='Subscriptions'>Subscriptions</a></li>
                             </ul>
@@ -92,6 +93,9 @@ function StudioPage(props) {
                 </div>
                 <div><b> Directions: </b> <a  target="_blank" href={studioDir}>{studioDir}</a> </div> 
                 <div>
+                    <Link id="btn-22" to={"/" + uid + "/studios/studio-page/" + id + "/" + "classes/all/"}>
+                        <button className="enroll-button"> View Classes </button>
+                    </Link>
                     {/*<Link to={"/" + uid + "/studios/studio-page/" + id + "/" + "classes/all/"}>
                         <button className="enroll-button"> View Classes </button>
                     </Link>*/}

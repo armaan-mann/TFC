@@ -49,7 +49,6 @@ class EnrolUserSerializer(serializers.ModelSerializer):
             if not user_mem:
                 raise serializers.ValidationError({"Message": "User Membership does not exist"})
 
-
             # Case for enroll
             if self.validated_data['_enroll_or_drop'] == 'enroll':
                 c = Class.objects.get(id=class_id)  # Every object that has the name gym

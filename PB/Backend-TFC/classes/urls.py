@@ -1,11 +1,13 @@
 from django.urls import path, re_path
 from classes.api.views import ViewClassAPIVIew, EnrollmentAPIView, HistoryAPIView, SearchByName, SearchByCoach, \
-    SearchByDate, SearchByTime, FilterView, ScheduleAPIView
+    SearchByDate, SearchByTime, FilterView, ScheduleAPIView, ShowEveryClassAPIView, ShowEveryClassPagniatedAPIView
 
 app_name = 'classes'
 
 urlpatterns = [
     path('<int:user_id>/<int:studio_id>/class/all/', ViewClassAPIVIew.as_view(), name='view_all_class'),
+    path('all/', ShowEveryClassAPIView.as_view(), name='all'),
+    path('paginated-all/', ShowEveryClassPagniatedAPIView.as_view(), name='all'),
     path('<int:user_id>/class/<int:id>/enroll-drop/', EnrollmentAPIView.as_view(), name='enroll'),
     path('<int:user_id>/class/history/', HistoryAPIView.as_view(), name='history'),
     path('<int:user_id>/class/my_schedule/', ScheduleAPIView.as_view(), name='schedule'),
